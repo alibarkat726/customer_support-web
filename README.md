@@ -24,7 +24,7 @@ This is a Flutter Web application designed to interact with the Customer Service
    Ensure your Python backend is running on port 8000.
    ```bash
    # From the root customer_service_bot directory
-   uvicorn app.main:app --reload
+   uvicorn app.main:app --reloadkkkh
    ```
 
 2. **Run Flutter Web**:
