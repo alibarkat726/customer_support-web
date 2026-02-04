@@ -35,7 +35,7 @@ class AdminController extends GetxController {
 
   void connectToOwnerSocket() {
     try {
-      final wsUrl = 'ws://127.0.0.1:8000/ws/owner/$ownerId';
+      final wsUrl = 'wss://customer-service-bot-xalv.onrender.com/ws/owner/$ownerId';
       _channel = WebSocketChannel.connect(Uri.parse(wsUrl));
       
       _channel!.stream.listen((message) {

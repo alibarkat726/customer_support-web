@@ -42,7 +42,7 @@ class ChatController extends GetxController {
     try {
       // Connect to the WebSocket
       // ws://127.0.0.1:8000/ws/customer/{customer_id}
-      final wsUrl = 'ws://127.0.0.1:8000/ws/customer/${currentCustomerId.value}';
+      final wsUrl = 'wss://customer-service-bot-xalv.onrender.com/ws/customer/${currentCustomerId.value}';
       _channel = WebSocketChannel.connect(Uri.parse(wsUrl));
       connectionStatus.value = 'Connected';
       
@@ -61,10 +61,10 @@ class ChatController extends GetxController {
   }
 
   void _handleIncomingMessage(dynamic data) {
-    // backend sends JSON strings
+
     try {
       final parsed = json.decode(data);
-      // Types: llm_reply, pending_message, info
+
 
       if (parsed['type'] == 'llm_reply' || parsed['type'] == 'owner_reply') {
          SenderType type = parsed['type'] == 'llm_reply' ? SenderType.bot : SenderType.admin;
@@ -85,10 +85,6 @@ class ChatController extends GetxController {
           status: 'delivered',
         ));
       } else if (parsed['type'] == 'info') {
-        // Show info notification (e.g. "Message sent to admin")
-        // We can add a system message or show a snackbar.
-        // Let's add a local system message for now or just print.
-        // User requested notification.
         Get.snackbar(
           "Notification", 
           parsed['message'] ?? '',
