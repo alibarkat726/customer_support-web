@@ -40308,7 +40308,7 @@ o3(){var s=this.dy
 if(s!=null)s.gqN().av()
 this.AW()},
 ahi(){var s,r,q,p
-try{s="ws://127.0.0.1:8000/ws/owner/999"
+try{s="wss://customer-service-bot-xalv.onrender.com/ws/owner/999"
 q=A.av5(A.YC(A.eo(s,0,null),null))
 this.dy=q
 q=q.r.b
@@ -40467,7 +40467,7 @@ case 4:return A.M(null,r)
 case 1:return A.L(p.at(-1),r)}})
 return A.N($async$y4,r)},
 ahj(){var s,r,q,p,o=this
-try{s="ws://127.0.0.1:8000/ws/customer/"+o.cx.gn()
+try{s="wss://customer-service-bot-xalv.onrender.com/ws/customer/"+o.cx.gn()
 o.cy=A.av5(A.YC(A.eo(s,0,null),null))
 o.CW.sn("Connected")
 q=o.cy.r.b
