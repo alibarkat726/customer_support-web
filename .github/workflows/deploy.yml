@@ -20,6 +20,9 @@ jobs:
       - name: Disable Jekyll
         run: touch build/web/.nojekyll
 
+      - name: Build Web
+        run: flutter build web --release --base-href "/customer_support-web/" --pwa-strategy=none
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
