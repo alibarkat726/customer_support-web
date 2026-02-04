@@ -13,8 +13,12 @@ jobs:
         with:
           channel: 'stable'
 
+
       - name: Build Web
         run: flutter build web --release --base-href "/customer_support-web/"
+
+      - name: Disable Jekyll
+        run: touch build/web/.nojekyll
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
