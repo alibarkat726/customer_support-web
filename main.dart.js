@@ -40692,7 +40692,7 @@ WC(a0){var s=0,r=A.O(t.CV),q,p=2,o=[],n,m,l,k,j,i,h,g,f,e,d,c,b,a
 var $async$qx=A.P(function(a1,a2){if(a1===1){o.push(a2)
 s=p}for(;;)switch(s){case 0:p=4
 s=7
-return A.R(A.aBq(A.eo("http://127.0.0.1:8000/messages?customer_id="+a0,0,null)),$async$qx)
+return A.R(A.aBq(A.eo("https://customer-service-bot-xalv.onrender.com/messages?customer_id="+a0,0,null)),$async$qx)
 case 7:n=a2
 if(n.b===200){g=n
 m=B.bd.e_(A.aBl(A.aAp(g.e)).e_(g.w))
@@ -40737,7 +40737,7 @@ uI(){var s=0,r=A.O(t.b5),q,p=2,o=[],n,m,l,k,j,i
 var $async$uI=A.P(function(a,b){if(a===1){o.push(b)
 s=p}for(;;)switch(s){case 0:p=4
 s=7
-return A.R(A.aBq(A.eo("http://127.0.0.1:8000/admin/customers",0,null)),$async$uI)
+return A.R(A.aBq(A.eo("https://customer-service-bot-xalv.onrender.com/admin/customers",0,null)),$async$uI)
 case 7:n=b
 if(n.b===200){k=n
 m=B.bd.e_(A.aBl(A.aAp(k.e)).e_(k.w))
@@ -40771,7 +40771,7 @@ apy(a){var s=0,r=A.O(t.y),q,p=2,o=[],n,m,l,k,j
 var $async$lq=A.P(function(b,c){if(b===1){o.push(c)
 s=p}for(;;)switch(s){case 0:p=4
 s=7
-return A.R(A.aQc(A.eo("http://127.0.0.1:8000/llm/enable?enabled="+a,0,null)),$async$lq)
+return A.R(A.aQc(A.eo("https://customer-service-bot-xalv.onrender.com/llm/enable?enabled="+a,0,null)),$async$lq)
 case 7:n=c
 l=n.b
 q=l===200
