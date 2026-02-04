@@ -5,7 +5,7 @@ import '../models/message.dart';
 class ApiService {
   // Use 127.0.0.1 for web, or 10.0.2.2 for Android emulator.
   // For web, we can often use localhost if the port is forwarded or if running on same machine.
-  static const String baseUrl = 'http://127.0.0.1:8000'; 
+  static const String baseUrl = 'https://customer-service-bot-xalv.onrender.com';
 
   Future<List<Message>> getCustomerMessages(int customerId) async {
     try {
