@@ -12,14 +12,18 @@ class ApiService {
       final response = await http.get(Uri.parse('$baseUrl/messages?customer_id=$customerId'));
       
       if (response.statusCode == 200) {
-        final Map<String, dynamic> jsonResponse = json.decode(response.body); // API returns {"data": [...]}
-        // Handle both list directly or wrapping object just in case, based on previous code.
-        // The backend returns {"data": messages} or {"message": ...}
-        
+        final dynamic decoded = json.decode(response.body);
         List<dynamic> data = [];
-        if (jsonResponse['data'] != null) {
-          data = jsonResponse['data'];
-        } 
+        
+        if (decoded is Map<String, dynamic>) {
+           if (decoded['data'] != null) {
+             data = decoded['data'];
+           } else if (decoded['messages'] != null) {
+              data = decoded['messages'];
+           }
+        } else if (decoded is List) {
+           data = decoded;
+        }
         
         List<Message> messages = [];
         
@@ -55,7 +59,7 @@ class ApiService {
         messages.sort((a, b) => a.timestamp.compareTo(b.timestamp));
         return messages;
       } else {
-        throw Exception('Failed to load messages');
+        throw Exception('Failed to load messages: ${response.statusCode}');
       }
     } catch (e) {
       print('Error fetching messages: $e');
@@ -67,7 +71,19 @@ class ApiService {
     try {
       final response = await http.get(Uri.parse('$baseUrl/admin/customers'));
       if (response.statusCode == 200) {
-        List<dynamic> list = json.decode(response.body);
+        final dynamic decoded = json.decode(response.body);
+        List<dynamic> list = [];
+        
+        if (decoded is List) {
+          list = decoded;
+        } else if (decoded is Map<String, dynamic>) {
+           if (decoded['data'] != null) {
+             list = decoded['data'];
+           } else if (decoded['customers'] != null) {
+             list = decoded['customers'];
+           }
+        }
+        
         return List<Map<String, dynamic>>.from(list);
       }
       return [];
