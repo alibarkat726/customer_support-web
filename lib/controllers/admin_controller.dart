@@ -196,13 +196,13 @@ class AdminController extends GetxController {
     }
   }
 
-  Future<void> ingestDocument(String content) async {
-    if (content.isEmpty) return;
+  Future<void> ingestDocuments(List<String> contents) async {
+    if (contents.isEmpty) return;
     
     isUploading.value = true;
     uploadStatus.value = 'Uploading...';
     try {
-      bool success = await _apiService.ingestDocument(content);
+      bool success = await _apiService.ingestDocuments(contents);
       if (success) {
         uploadStatus.value = 'Success!';
         Future.delayed(Duration(seconds: 2), () => uploadStatus.value = '');

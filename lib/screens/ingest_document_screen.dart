@@ -84,7 +84,7 @@ class IngestDocumentScreen extends StatelessWidget {
                         ? null
                         : () {
                             if (_contentController.text.trim().isNotEmpty) {
-                              adminController.ingestDocument(_contentController.text);
+                              adminController.ingestDocuments([_contentController.text]);
                               // Optional: clear text after success? 
                               // Current controller logic clears status after 2s but not text.
                             }

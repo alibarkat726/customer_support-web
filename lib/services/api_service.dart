@@ -90,16 +90,16 @@ class ApiService {
     }
   }
 
-  Future<bool> ingestDocument(String content) async {
+  Future<bool> ingestDocuments(List<String> contents) async {
     try {
       final response = await http.post(
-        Uri.parse('$baseUrl/admin/add/one'),
+        Uri.parse('$baseUrl/admin/add/many'),
         headers: {'Content-Type': 'application/json'},
-        body: json.encode({'content': content}),
+        body: json.encode({'documents': contents}),
       );
       return response.statusCode == 200;
     } catch (e) {
-      print('Error ingesting document: $e');
+      print('Error ingesting documents: $e');
       return false;
     }
   }
