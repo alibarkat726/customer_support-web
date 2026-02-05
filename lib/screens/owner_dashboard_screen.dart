@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../controllers/admin_controller.dart';
 import '../widgets/chat_bubble.dart';
 import '../models/message.dart';
+import 'ingest_document_screen.dart';
 
 class OwnerDashboardScreen extends StatelessWidget {
   OwnerDashboardScreen({super.key});
@@ -29,6 +30,23 @@ class OwnerDashboardScreen extends StatelessWidget {
                   child: Text(
                     "Inbox",
                     style: GoogleFonts.outfit(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold),
+                  ),
+                ),
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                  width: double.infinity,
+                  child: ElevatedButton.icon(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xFF6C63FF),
+                      foregroundColor: Colors.white,
+                      padding: const EdgeInsets.symmetric(vertical: 12),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                    ),
+                    icon: const Icon(Icons.upload_file, size: 20),
+                    label: Text("Ingest Doc", style: GoogleFonts.inter(fontWeight: FontWeight.w600)),
+                    onPressed: () => Get.to(() => IngestDocumentScreen()),
                   ),
                 ),
                 Expanded(
@@ -107,7 +125,7 @@ class OwnerDashboardScreen extends StatelessWidget {
                     ),
                   ),
                   
-                  // Messages List
+                  
                   Expanded(
                     child: adminController.isLoading.value 
                     ? const Center(child: CircularProgressIndicator()) 
@@ -117,14 +135,7 @@ class OwnerDashboardScreen extends StatelessWidget {
                         itemCount: adminController.messages.length,
                         itemBuilder: (context, index) {
                           final msg = adminController.messages[index];
-                          // Adjust isMe logic for Owner: Owner is "Me" if sender is admin.
                           bool isMe = msg.senderType == SenderType.admin;
-                          // If sender is customer, it's on the left.
-                          // If sender is bot, maybe distinguish it? 
-                          // Let's say Bot is also on "My" side but different color? 
-                          // Or left side? Usually Bot acts on behalf of owner, so Right side.
-                          
-                          // Custom bubble for Dashboard
                           String? label;
                           if (msg.senderType == SenderType.bot) label = "AI Agent";
                           if (msg.senderType == SenderType.admin) label = "You (Admin)";
