@@ -40801,7 +40801,7 @@ return A.fC(q,B.ae,B.a_,B.aH)},
 $S:416}
 A.a4J.prototype={
 $0(){var s=this.a,r=s.d.a.a
-if(B.c.lw(r).length!==0)s.c.lc(r)},
+if(B.c.lw(r).length!==0)s.c.lc(A.c([r],t.s))},
 $S:0}
 A.tm.prototype={
 N(a){var s=null,r=A.eP(s,A.cc("Inbox",s,s,s,A.arf().$3$color$fontSize$fontWeight(B.k,24,B.b6),s,s),B.u,s,s,s,s,s,s,s,B.jl,s,s,s),q=A.awz(s,s,B.bg,s,s,s,s,s,s,B.k,s,s,B.En,s,new A.cz(A.fc(8),B.q),s,s,s,s,s),p=t.D
@@ -40992,11 +40992,11 @@ lc(a){return this.alK(a)},
 alK(a){var s=0,r=A.O(t.y),q,p=2,o=[],n,m,l,k,j,i,h
 var $async$lc=A.P(function(b,c){if(b===1){o.push(c)
 s=p}for(;;)switch(s){case 0:p=4
-l=A.e9("https://customer-service-bot-xalv.onrender.com/admin/add/one",0,null)
+l=A.e9("https://customer-service-bot-xalv.onrender.com/admin/add/many",0,null)
 k=t.N
 j=A.ap(["Content-Type","application/json"],k,k)
 s=7
-return A.R(A.aC6(l,B.b5.jf(A.ap(["content",a],k,k)),j),$async$lc)
+return A.R(A.aC6(l,B.b5.jf(A.ap(["documents",a],k,t.yp)),j),$async$lc)
 case 7:n=c
 j=n.b
 q=j===200
@@ -41008,7 +41008,7 @@ break
 case 4:p=3
 h=o.pop()
 m=A.af(h)
-A.i9("Error ingesting document: "+A.j(m))
+A.i9("Error ingesting documents: "+A.j(m))
 q=!1
 s=1
 break
