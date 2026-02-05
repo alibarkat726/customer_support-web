@@ -89,8 +89,6 @@ class OwnerDashboardScreen extends StatelessWidget {
                   child: Text("Select a conversation to start", style: GoogleFonts.inter(color: Colors.grey)),
                 );
               }
-              
-              // Scroll to bottom when messages update
               if (adminController.messages.isNotEmpty) {
                  Future.delayed(Duration(milliseconds: 100), () {
                     if (_scrollController.hasClients) {

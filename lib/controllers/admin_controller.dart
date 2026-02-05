@@ -182,17 +182,28 @@ class AdminController extends GetxController {
   }
 
   Future<void> toggleLlm(bool value) async {
-    bool success = await _apiService.toggleLlm(value);
-    if (success) {
-      llmEnabled.value = value;
-      // Also update backend specific room if needed via WS or specific endpoint
-      if (selectedCustomerId.value != null && _channel != null) {
+    // Only proceed if we have a selected customer and a valid connection
+    if (selectedCustomerId.value == null) return;
+    
+    // Optimistic update
+    llmEnabled.value = value;
+    
+    if (_channel != null) {
+        try {
           _channel!.sink.add(json.encode({
             "type": "toggle_llm",
             "customer_id": selectedCustomerId.value,
             "enabled": value
           }));
-      }
+        } catch (e) {
+          print("Error sending toggle_llm via WS: $e");
+          // Revert if failed
+          llmEnabled.value = !value;
+        }
+    } else {
+      print("WebSocket not connected, cannot toggle LLM");
+      // Revert if no connection
+       llmEnabled.value = !value;
     }
   }
 

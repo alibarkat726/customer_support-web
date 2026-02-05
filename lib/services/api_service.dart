@@ -85,8 +85,7 @@ class ApiService {
       return response.statusCode == 200;
     } catch (e) {
       print('Error toggling LLM: $e');
-      return false;
-    }
+    }    return false;
   }
 
   Future<bool> ingestDocuments(List<String> contents) async {
