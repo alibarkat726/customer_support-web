@@ -77,7 +77,6 @@ class ApiService {
     }
   }
 
-  // Admin Actions
   Future<bool> toggleLlm(bool enabled) async {
     try {
       final response = await http.post(

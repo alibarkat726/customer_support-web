@@ -46,7 +46,7 @@ class IngestDocumentScreen extends StatelessWidget {
                   expands: true,
                   style: GoogleFonts.inter(color: Colors.white),
                   decoration: InputDecoration(
-                    hintText: "Paste text here...",
+                    hintText: "Paste text here. Separate multiple documents with ','",
                     hintStyle: GoogleFonts.inter(color: Colors.grey[500]),
                     border: InputBorder.none,
                     contentPadding: const EdgeInsets.all(16),
@@ -84,7 +84,16 @@ class IngestDocumentScreen extends StatelessWidget {
                         ? null
                         : () {
                             if (_contentController.text.trim().isNotEmpty) {
-                              adminController.ingestDocuments([_contentController.text]);
+                              // Split by "---" and remove empty entries
+                              List<String> docs = _contentController.text
+                                  .split(',')
+                                  .map((e) => e.trim())
+                                  .where((e) => e.isNotEmpty)
+                                  .toList();
+                              
+                              if (docs.isNotEmpty) {
+                                adminController.ingestDocuments(docs);
+                              }
                               // Optional: clear text after success? 
                               // Current controller logic clears status after 2s but not text.
                             }
