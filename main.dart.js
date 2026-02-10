@@ -40983,7 +40983,7 @@ ld(a){return this.alK(a)},
 alK(a){var s=0,r=A.O(t.y),q,p=2,o=[],n,m,l,k,j,i,h
 var $async$ld=A.P(function(b,c){if(b===1){o.push(c)
 s=p}for(;;)switch(s){case 0:p=4
-l=A.ep("https://customer-service-bot-xalv.onrender.com/admin/add/many",0,null)
+l=A.ep("https://customer-service-bot-xalv.onrender.com/admin/add/one",0,null)
 k=t.N
 j=A.ap(["Content-Type","application/json"],k,k)
 s=7
