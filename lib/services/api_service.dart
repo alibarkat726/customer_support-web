@@ -107,7 +107,7 @@ class ApiService {
   Future<bool> ingestDocuments(List<String> contents) async {
     try {
       final response = await http.post(
-        Uri.parse('$baseUrl/admin/add/many'),
+        Uri.parse('$baseUrl/admin/add/one'),
         headers: {'Content-Type': 'application/json'},
         body: json.encode({'documents': contents}),
       );
