@@ -109,7 +109,7 @@ class ApiService {
       final response = await http.post(
         Uri.parse('$baseUrl/admin/add/one'),
         headers: {'Content-Type': 'application/json'},
-        body: json.encode({'documents': contents}),
+        body: json.encode({'content': contents}),
       );
       return response.statusCode == 200;
     } catch (e) {
