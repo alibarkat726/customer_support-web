@@ -40977,7 +40977,7 @@ l=A.ep("https://customer-service-bot-xalv.onrender.com/admin/add/one",0,null)
 k=t.N
 j=A.ap(["Content-Type","application/json"],k,k)
 s=7
-return A.S(A.aQE(l,B.b5.jf(A.ap(["documents",a],k,k)),j),$async$lc)
+return A.S(A.aQE(l,B.b5.jf(A.ap(["content",a],k,k)),j),$async$lc)
 case 7:n=c
 j=n.b
 q=j===200
