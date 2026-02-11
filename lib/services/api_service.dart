@@ -104,7 +104,7 @@ class ApiService {
     }    return false;
   }
 
-  Future<bool> ingestDocuments(List<String> contents) async {
+  Future<bool> ingestDocuments(String contents) async {
     try {
       final response = await http.post(
         Uri.parse('$baseUrl/admin/add/one'),
