@@ -207,7 +207,7 @@ class AdminController extends GetxController {
     }
   }
 
-  Future<void> ingestDocuments(List<String> contents) async {
+  Future<void> ingestDocuments(String contents) async {
     if (contents.isEmpty) return;
     
     isUploading.value = true;

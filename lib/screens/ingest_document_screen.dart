@@ -85,12 +85,7 @@ class IngestDocumentScreen extends StatelessWidget {
                         : () {
                             if (_contentController.text.trim().isNotEmpty) {
                               // Split by "---" and remove empty entries
-                              List<String> docs = _contentController.text
-                                  .split(',')
-                                  .map((e) => e.trim())
-                                  .where((e) => e.isNotEmpty)
-                                  .toList();
-                              
+                               String docs = _contentController.text;
                               if (docs.isNotEmpty) {
                                 adminController.ingestDocuments(docs);
                               }
