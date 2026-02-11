@@ -111,6 +111,7 @@ class ApiService {
         headers: {'Content-Type': 'application/json'},
         body: json.encode({'content': contents}),
       );
+      print(response.body);
       return response.statusCode == 200;
     } catch (e) {
       print('Error ingesting documents: $e');
